@@ -13,10 +13,13 @@ library(shiny)
 library(dplyr)
 library(tidyverse)
 library (plotly)
+library(lubridate)
 
 db <- read_csv("./data-clean/quality.csv")
 db <- db %>%
   mutate(production_date = lubridate::dmy(production_date))
+
+
 
 db <- db %>% 
   rename("Mean_Daily_Production" = "mean_prod_sl",
